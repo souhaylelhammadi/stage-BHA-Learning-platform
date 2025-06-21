@@ -1,77 +1,82 @@
-## BHA Learning platform
+🧠 BHA Learning Platform
 
-This is a [Next.js](https://nextjs.org) project to build a fullstack learning web app.
+Ceci est un projet Next.js visant à développer une application web d’apprentissage en ligne fullstack.
+▶️ Démarrage rapide
 
-## Getting Started
+Pour lancer le serveur de développement :
 
-to run the development server:
-
-```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvre ensuite http://localhost:3000 dans ton navigateur pour voir le résultat.
+📁 Structure du projet suggérée
 
-## suggested project structure 
-it is a suggested structure that can be modified as the requirements updates
+Il s’agit d’une structure proposée que tu peux modifier selon l’évolution des besoins.
 
 learning-platform-app/
-├── app/                      # Next.js App Router (or pages/ for Pages Router)
-│   ├── api/                # API Routes (backend logic - Next.js serverless functions)
-│   │   ├── courses/
-│   │   ├── users/
-│   │   ├── ...
-│   ├── auth/               # Authentication related code (Keycloak integration)
-│   │   ├── components/     # Auth-related UI components (login form, etc.)
-│   │   └── utils/          # Auth utility functions
-│   ├── student/            # Student Interface Feature Area
-│   │   ├── courses/        # Student Course Browsing/Enrollment
+├── app/                         # App Router de Next.js (ou pages/ pour le Pages Router)
+│   ├── api/                     # Routes API (logique backend – fonctions serverless de Next.js)
+│   │   ├── courses/             # API des cours
+│   │   ├── users/               # API des utilisateurs
+│   │   └── ...                  
+│
+│   ├── auth/                    # Code lié à l'authentification (ex. : intégration Keycloak)
+│   │   ├── components/          # Composants UI liés à l'authentification (formulaire de login, etc.)
+│   │   └── utils/               # Fonctions utilitaires pour l'auth
+│
+│   ├── student/                 # Interface destinée aux étudiants
+│   │   ├── courses/             # Navigation / inscription aux cours
 │   │   │   ├── components/
 │   │   │   └── page.tsx
-│   │   ├── dashboard/      # Student Dashboard
+│   │   ├── dashboard/           # Tableau de bord étudiant
 │   │   │   ├── components/
 │   │   │   └── page.tsx
-│   │   └── layout.tsx      # Student interface layout
-│   │   └── page.tsx        # Student root page (if needed)
-│   ├── instructor/         # Instructor Interface Feature Area (similar structure to student)
-│   │   ├── courses/        # Instructor Course Management
-│   │   ├── dashboard/      # Instructor Dashboard
-│   │   └── layout.tsx
+│   │   ├── layout.tsx           # Mise en page de l’interface étudiante
+│   │   └── page.tsx             # Page d’accueil étudiante (si besoin)
+│
+│   ├── instructor/              # Interface pour les formateurs (structure similaire à student)
+│   │   ├── courses/             # Gestion des cours par le formateur
+│   │   ├── dashboard/           # Tableau de bord du formateur
+│   │   ├── layout.tsx
 │   │   └── page.tsx
-│   ├── admin/              # Admin Interface Feature Area (similar structure to student/instructor)
-│   │   ├── users/          # User Management
-│   │   ├── courses/        # Course Management
-│   │   ├── categories/     # Category Management
-│   │   └── layout.tsx
+│
+│   ├── admin/                   # Interface d'administration
+│   │   ├── users/               # Gestion des utilisateurs
+│   │   ├── courses/             # Gestion des cours
+│   │   ├── categories/          # Gestion des catégories
+│   │   ├── layout.tsx
 │   │   └── page.tsx
-│   ├── components/         # Reusable UI Components (global components)
-│   │   ├── ui/             # General UI elements (buttons, inputs, cards, etc.)
-│   │   ├── layouts/        # Common layouts (e.g., dashboard layout)
-│   │   ├── navigation/     # Navigation components (header, sidebar)
+│
+│   ├── components/              # Composants UI réutilisables
+│   │   ├── ui/                  # Éléments d’interface (boutons, champs, cartes, etc.)
+│   │   ├── layouts/             # Mises en page communes (ex. : layout tableau de bord)
+│   │   ├── navigation/          # Composants de navigation (header, sidebar)
 │   │   └── ...
-│   ├── context/            # React Context Providers (if using Context API for state)
-│   ├── hooks/              # Custom React Hooks
-│   ├── lib/                # Utility functions, API client, database helpers
-│   │   ├── api-client.ts   # Functions to interact with backend API routes
-│   │   ├── db.ts           # MongoDB connection and helpers
-│   │   └── utils.ts        # General utility functions
-│   ├── models/             # Data Models/Schemas (TypeScript interfaces/types)
-│   ├── styles/             # Tailwind CSS configuration, global styles
+│
+│   ├── context/                 # Fournisseurs de contexte React (si Context API est utilisé)
+│   ├── hooks/                   # Hooks personnalisés
+│   ├── lib/                     # Fonctions utilitaires, client API, helpers base de données
+│   │   ├── api-client.ts        # Fonctions pour interagir avec les routes API
+│   │   ├── db.ts                # Connexion MongoDB et helpers
+│   │   └── utils.ts             # Fonctions utilitaires générales
+│
+│   ├── models/                  # Modèles de données / types TypeScript
+│
+│   ├── styles/                  # Configuration Tailwind CSS et styles globaux
 │   │   ├── globals.css
 │   │   └── tailwind.config.js
-│   ├── public/             # Static assets (images, fonts)
-│   ├── layout.tsx          # Root layout for the entire app
-│   ├── page.tsx            # Homepage
-│   └── ...
+│
+│   ├── public/                  # Fichiers statiques (images, polices, etc.)
+│   ├── layout.tsx               # Layout racine de l’application
+│   └── page.tsx                 # Page d’accueil
+│
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.js
 ├── postcss.config.js
 └── README.md
-
