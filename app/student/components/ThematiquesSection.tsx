@@ -29,47 +29,47 @@ const thematiques: Thematique[] = [
   {
     id: 1,
     icon: <FaChartLine className="w-12 h-12" />,
-    title: "DÉVELOPPEMENT PROFESSIONNEL",
+    title: "PROFESSIONAL DEVELOPMENT",
   },
   {
     id: 2,
     icon: <FaUser className="w-12 h-12" />,
-    title: "DÉVELOPPEMENT PERSONNEL",
+    title: "PERSONAL DEVELOPMENT",
   },
   {
     id: 3,
     icon: <FaPalette className="w-12 h-12" />,
-    title: "ARTS, DESIGN ET CRÉATIVITÉ",
+    title: "ARTS, DESIGN AND CREATIVITY",
   },
   {
     id: 4,
     icon: <FaLaptopCode className="w-12 h-12" />,
-    title: "INFORMATIQUE",
+    title: "COMPUTER SCIENCE",
   },
   {
     id: 5,
     icon: <FaGraduationCap className="w-12 h-12" />,
-    title: "EDUCATION ET ENSEIGNEMENT",
+    title: "EDUCATION AND TEACHING",
   },
   {
     id: 6,
     icon: <FaHeartbeat className="w-12 h-12" />,
-    title: "SANTÉ ET MÉDECINE",
+    title: "HEALTH AND MEDICINE",
   },
   {
     id: 7,
     icon: <FaCalculator className="w-12 h-12" />,
-    title: "MATHÉMATIQUES",
+    title: "MATHEMATICS",
   },
   { id: 8, icon: <FaFlask className="w-12 h-12" />, title: "SCIENCES" },
   {
     id: 9,
     icon: <FaUsers className="w-12 h-12" />,
-    title: "SCIENCES HUMAINES",
+    title: "HUMANITIES",
   },
   { id: 10, icon: <FaDatabase className="w-12 h-12" />, title: "DATA SCIENCE" },
-  { id: 11, icon: <FaCode className="w-12 h-12" />, title: "PROGRAMMATION" },
-  { id: 12, icon: <FaCogs className="w-12 h-12" />, title: "INGÉNIERIE" },
+  { id: 11, icon: <FaCode className="w-12 h-12" />, title: "PROGRAMMING" },
+  { id: 12, icon: <FaCogs className="w-12 h-12" />, title: "ENGINEERING" },
 ];
 
 const ThematiquesSection: React.FC = () => {
@@ -108,11 +108,11 @@ const ThematiquesSection: React.FC = () => {
     <div className="bg-gray-50 py-12 overflow-hidden">
       <div className=" mx-auto px-4">
         <h2 className="text-3xl text-center text-blue-900 font-semibold mb-10">
-          LES THÉMATIQUES
+          THEMATICS
         </h2>
         <p className="text-center text-gray-600 mb-12">
-          Sélectionnez la catégorie qui vous intéresse et découvrez les
-          formations disponibles.
+          Select the category that interests you and discover the available
+          courses.
         </p>
 
         {/* Premier groupe - défilement vers la gauche */}

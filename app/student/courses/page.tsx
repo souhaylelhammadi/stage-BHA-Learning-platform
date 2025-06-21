@@ -25,15 +25,14 @@ const CourseCard: React.FC<{ course: Course; uniqueKey: string }> = ({
         fill
         className="object-cover rounded-t-lg"
       />
-      
     </div>
     <div className="p-3 flex-1 flex flex-col">
       <div className="flex items-center gap-1 mb-1">
         <span
           className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
-            course.level === "Débutant"
+            course.level === "Beginner"
               ? "bg-green-100 text-green-800"
-              : course.level === "Intermédiaire"
+              : course.level === "Intermediate"
               ? "bg-yellow-100 text-yellow-800"
               : "bg-red-100 text-red-800"
           }`}
@@ -58,14 +57,14 @@ const CourseCard: React.FC<{ course: Course; uniqueKey: string }> = ({
             <span className="font-medium ml-0.5">{course.rating}</span>
           </div>
           <span className="text-gray-600">
-            {course.students.toLocaleString()} étudiants
+            {course.students.toLocaleString()} students
           </span>
         </div>
         <Link
           href={`/student/courses/${course.id}`}
           className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-xs"
         >
-          Voir →
+          View →
         </Link>
       </div>
     </div>
@@ -103,10 +102,9 @@ const Pagination: React.FC<{
         pageNumbers.push(i);
       }
 
-    
       if (startPage > 1) {
         pageNumbers.unshift(1);
-        if (startPage > 2) pageNumbers.splice(1, 0, -1); 
+        if (startPage > 2) pageNumbers.splice(1, 0, -1);
       }
 
       if (endPage < totalPages) {
@@ -124,7 +122,7 @@ const Pagination: React.FC<{
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="Page précédente"
+        aria-label="Previous page"
       >
         <ChevronLeft className="h-5 w-5 text-gray-600" />
       </button>
@@ -158,20 +156,22 @@ const Pagination: React.FC<{
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="Page suivante"
+        aria-label="Next page"
       >
         <ChevronRight className="h-5 w-5 text-gray-600" />
       </button>
     </div>
   );
 };
-{'/* Page principale des cours */}'}
+{
+  ("/* Page principale des cours */}");
+}
 export default function CoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("Tous");
-  const [selectedLevel, setSelectedLevel] = useState<string>("Tous");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedLevel, setSelectedLevel] = useState<string>("All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
     new Set()
@@ -179,20 +179,19 @@ export default function CoursesPage() {
   const [categoryPages, setCategoryPages] = useState<Record<string, number>>(
     {}
   );
-  const coursesPerPage = 3; 
+  const coursesPerPage = 3;
 
   // CORRECTION: Utilisation correcte de l'importation asynchrone
   useEffect(() => {
     const fetchCourses = async () => {
       setLoading(true);
       try {
-        
         const { STATIC_COURSES: fetchedCourses } = await import(
           "./courses-data"
         );
         setCourses(fetchedCourses);
       } catch (error) {
-        console.error("Erreur lors de la récupération des cours :", error);
+        console.error("Error fetching courses:", error);
         setCourses([]);
       } finally {
         setLoading(false);
@@ -214,9 +213,9 @@ export default function CoursesPage() {
       course.title.toLowerCase().includes(searchQuery) ||
       course.description.toLowerCase().includes(searchQuery);
     const matchesCategory =
-      selectedCategory === "Tous" || course.category === selectedCategory;
+      selectedCategory === "All" || course.category === selectedCategory;
     const matchesLevel =
-      selectedLevel === "Tous" || course.level === selectedLevel;
+      selectedLevel === "All" || course.level === selectedLevel;
     return matchesSearch && matchesCategory && matchesLevel;
   });
 
@@ -278,10 +277,10 @@ export default function CoursesPage() {
 
   // Listes des catégories et des niveaux disponibles
   const categories = [
-    "Tous",
+    "All",
     ...Array.from(new Set(courses.map((course) => course.category))),
   ];
-  const levels = ["Tous", "Débutant", "Intermédiaire", "Avancé"];
+  const levels = ["All", "Beginner", "Intermediate", "Advanced"];
 
   // Générer des IDs de catégorie sécurisés pour les clés
   const categoryToId = (category: string): string => {
@@ -297,14 +296,14 @@ export default function CoursesPage() {
             href="/student"
             className="text-blue-900 hover:underline py-2 inline-block"
           >
-            ← Retour à l'accueil
+            ← Back to home
           </Link>
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
             <div className="relative flex-1 w-full">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Rechercher des cours..."
+                placeholder="Search courses..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900 text-sm sm:text-base"
                 value={searchQuery}
                 onChange={handleSearchChange}
@@ -331,7 +330,7 @@ export default function CoursesPage() {
                   className="text-sm font-medium text-gray-700"
                   htmlFor="category-select"
                 >
-                  Catégorie
+                  Category
                 </label>
                 <select
                   id="category-select"
@@ -358,7 +357,7 @@ export default function CoursesPage() {
                   className="text-sm font-medium text-gray-700"
                   htmlFor="level-select"
                 >
-                  Niveau
+                  Level
                 </label>
                 <select
                   id="level-select"
@@ -386,11 +385,11 @@ export default function CoursesPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-            Explorer notre catalogue de cours
+            Explore our course catalog
           </h1>
           <p className="text-gray-600 mt-1 text-sm sm:text-base">
-            Découvrez {filteredCourses.length} cours conçus pour votre parcours
-            d'apprentissage
+            Discover {filteredCourses.length} courses designed for your learning
+            journey
           </p>
         </div>
 
@@ -412,7 +411,8 @@ export default function CoursesPage() {
         ) : filteredCourses.length > 0 ? (
           <div className="space-y-12">
             {/* Affichage des sections de cours par catégorie */}
-            {Object.entries(groupedCourses).map( // Utilisation de Object.entries pour obtenir les catégories et leurs cours
+            {Object.entries(groupedCourses).map(
+              // Utilisation de Object.entries pour obtenir les catégories et leurs cours
               ([category, categoryCourses]) => {
                 const categoryId = categoryToId(category);
                 return (
@@ -430,8 +430,8 @@ export default function CoursesPage() {
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
                         >
                           {expandedCategories.has(category)
-                            ? "Réduire"
-                            : "Voir tous les cours"}
+                            ? "Collapse"
+                            : "View all courses"}
                           <ChevronDown
                             className={`h-4 w-4 transition-transform ${
                               expandedCategories.has(category) // Ajoutez la classe de rotation si la catégorie est expandée
@@ -473,21 +473,21 @@ export default function CoursesPage() {
           <div className="text-center py-12 bg-white rounded-lg shadow-sm">
             <div className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Aucun cours trouvé
+                No course found
               </h3>
               <p className="text-gray-600">
-                Aucun cours ne correspond à vos critères. Essayez d'ajuster vos
-                filtres ou termes de recherche.
+                No course matches your criteria. Try adjusting your filters or
+                search terms.
               </p>
               <button
                 onClick={() => {
                   setSearchQuery("");
-                  setSelectedCategory("Tous");
-                  setSelectedLevel("Tous");
+                  setSelectedCategory("All");
+                  setSelectedLevel("All");
                 }}
                 className="mt-4 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors"
               >
-                Réinitialiser les filtres
+                Reset filters
               </button>
             </div>
           </div>

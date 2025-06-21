@@ -44,7 +44,7 @@ const Login: React.FC = () => {
       <div className="w-full max-w-md bg-white rounded-lg shadow border border-gray-200">
         <div className="p-4 space-y-4 md:p-6 md:space-y-6">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-            Connectez-vous à votre compte
+            Sign in to your account
           </h1>
 
           {error && <p className="text-sm text-red-600 text-center">{error}</p>}
@@ -61,7 +61,7 @@ const Login: React.FC = () => {
                 htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                Adresse email
+                Email address
               </label>
               <input
                 type="email"
@@ -80,11 +80,9 @@ const Login: React.FC = () => {
                 htmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                Mot de passe
+                Password
               </label>
               <input
-
-
                 type="password"
                 name="password"
                 id="password"
@@ -108,7 +106,7 @@ const Login: React.FC = () => {
                 </div>
                 <div className="ml-3 text-sm">
                   <label htmlFor="remember" className="text-gray-500">
-                    Se souvenir de moi
+                    Remember me
                   </label>
                 </div>
               </div>
@@ -116,7 +114,7 @@ const Login: React.FC = () => {
                 href="motpassoublier"
                 className="text-sm font-medium text-blue-950 hover:underline"
               >
-                Mot de passe oublié ?
+                Forgot password?
               </a>
             </div>
 
@@ -124,16 +122,16 @@ const Login: React.FC = () => {
               type="submit"
               className="w-full text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
-              Se connecter
+              Sign in
             </button>
 
             <p className="text-sm font-light text-gray-500 text-center">
-              Vous n'avez pas encore de compte ?{" "}
+              Don't have an account yet?{" "}
               <Link
                 href="/auth/register"
                 className="font-medium text-blue-950 hover:underline"
               >
-                S'inscrire
+                Sign up
               </Link>
             </p>
           </form>

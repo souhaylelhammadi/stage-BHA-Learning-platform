@@ -44,11 +44,10 @@ const HeroBanner = () => {
       {/* Image de fond */}
       <div className="absolute inset-0">
         <Image
-          src="/images/header.jpg" 
-          alt="Éducation en ligne"
+          src="/images/header.jpg"
+          alt="Online Education"
           layout="fill"
           objectFit="cover"
-          
         />
       </div>
 
@@ -68,8 +67,8 @@ const HeroBanner = () => {
           animate={controls}
           transition={{ duration: 1, delay: 0.5 }} // Délai pour l'animation du paragraphe
         >
-          Apprenez, Enseignez, Réussissez ! Créez, partagez et suivez des cours
-          en ligne où que vous soyez.
+          Learn, Teach, Succeed! Create, share and follow online courses
+          wherever you are.
         </motion.p>
         <motion.div
           className="bg-white rounded-lg shadow-lg max-w-2xl mx-auto"
@@ -80,13 +79,13 @@ const HeroBanner = () => {
           <div className="flex">
             <input
               type="text"
-              placeholder="Que souhaitez-vous apprendre ?"
+              placeholder="What would you like to learn?"
               className="flex-1 p-4 rounded-l-lg focus:outline-none"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button className="bg-amber-600 text-white p-4 rounded-r-lg font-medium hover:bg-blue-950 transition-colors">
-              RECHERCHER
+              SEARCH
             </button>
           </div>
         </motion.div>
@@ -96,7 +95,7 @@ const HeroBanner = () => {
           animate={controls}
           transition={{ duration: 1, delay: 1.5 }} // Délai pour l'animation du texte
         >
-          Ou laissez-nous vous guider
+          Or let us guide you
         </motion.p>
       </motion.div>
     </div>

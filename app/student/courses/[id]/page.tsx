@@ -13,7 +13,7 @@ export default function CourseDetailPage() {
           href="/student/courses"
           className="text-blue-900 hover:underline mb-4 inline-block"
         >
-          ← Retour au catalogue
+          ← Back to catalog
         </Link>
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
           {courseData.title}

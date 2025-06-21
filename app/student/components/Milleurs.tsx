@@ -28,15 +28,15 @@ const STATISTICS: Statistics = {
 const TOP_MOOCS: Mooc[] = [
   {
     id: 1,
-    title: "VIGIPIRATE : SENSIBILISEZ-VOUS AU RISQUE TERRORISTE",
-    category: "Cybersécurité",
+    title: "VIGIPIRATE: AWARENESS OF TERRORIST RISKS",
+    category: "Cybersecurity",
     rating: 4.8,
     image: "/images/Cyber.jpeg",
   },
   {
     id: 2,
-    title: "SECNUMACADÉMIE : SE FORMER À LA SÉCURITÉ INFORMATIQUE",
-    category: "Cybersécurité",
+    title: "SECNUMACADEMY: TRAINING IN COMPUTER SECURITY",
+    category: "Cybersecurity",
     rating: 4.5,
     image: "/images/Cyber.jpeg",
   },
@@ -49,8 +49,8 @@ const TOP_MOOCS: Mooc[] = [
   },
   {
     id: 4,
-    title: "ENSEIGNER LE FRANÇAIS LANGUE ÉTRANGÈRE AUJOURD'HUI",
-    category: "Langues étrangères",
+    title: "TEACHING FRENCH AS A FOREIGN LANGUAGE TODAY",
+    category: "Foreign Languages",
     rating: 4.7,
     image: "/images/flr.webp",
   },
@@ -70,7 +70,7 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
 }) => (
   <div className="text-center">
     <div className="text-4xl font-bold text-blue-900">
-      {label === "Cours" ? "+ " : ""}
+      {label === "Courses" ? "+ " : ""}
       <CountUp end={inView ? end : 0} duration={2.5} separator="," />
     </div>
     <div className="text-gray-600">{label}</div>
@@ -150,11 +150,11 @@ const Meilleurs: React.FC = () => {
         }`}
       >
         <h2 className="text-3xl text-center text-blue-900 font-semibold mb-6">
-          UNE COMMUNAUTÉ POUR TROUVER LES MEILLEURS BHA
+          A COMMUNITY TO FIND THE BEST BHA
         </h2>
         <p className="text-center text-gray-600 mb-10">
-          Notre plateforme bénéficie d'une communauté active qui contribue,
-          collecte des badges et partage son expérience en notant les Cours.
+          Our platform benefits from an active community that contributes,
+          collects badges, and shares their experience by rating courses.
         </p>
       </div>
 
@@ -167,19 +167,19 @@ const Meilleurs: React.FC = () => {
       >
         <StatisticItem
           end={STATISTICS.moocs}
-          label="Cours"
+          label="Courses"
           inView={statsInView}
         />
         <hr className="hidden md:block border-t-2 border-blue-200 w-16" />
         <StatisticItem
           end={STATISTICS.users}
-          label="Internautes"
+          label="Users"
           inView={statsInView}
         />
         <hr className="hidden md:block border-t-2 border-blue-200 w-16" />
         <StatisticItem
           end={STATISTICS.reviews}
-          label="Avis"
+          label="Reviews"
           inView={statsInView}
         />
       </div>
@@ -200,28 +200,25 @@ const Meilleurs: React.FC = () => {
           }`}
         >
           <h3 className="text-xl text-blue-900 font-semibold mb-4">
-            Le classement de l'écosystème
+            Ecosystem Rankings
           </h3>
           <p className="text-gray-600 mb-4">
-            Notre objectif est de vous guider dans vos recherches, en toute{" "}
-            <span className="font-semibold">simplicité</span>. C'est pourquoi
-            chacun peut s'exprimer ! Notre plateforme bénéficie ainsi d'une{" "}
-            <span className="font-semibold">communauté active</span> qui
-            contribue, collecte des badges et partage son expérience en{" "}
-            <span className="font-semibold">notant les Cours</span>. À vous
-            ensuite de vous faire votre propre avis et de les{" "}
-            <span className="font-semibold">partager</span> !
+            Our goal is to guide you in your search with{" "}
+            <span className="font-semibold">simplicity</span>. That's why
+            everyone can express themselves! Our platform benefits from an{" "}
+            <span className="font-semibold">active community</span> that
+            contributes, collects badges, and shares their experience by{" "}
+            <span className="font-semibold">rating courses</span>. It's then up
+            to you to form your own opinion and{" "}
+            <span className="font-semibold">share</span> it!
           </p>
           <p className="text-gray-600">
-            En vous inscrivant sur My Mooc vous n'aurez pas seulement accès à un
-            moteur de{" "}
-            <span className="font-semibold">recherche personnalisé</span> et aux{" "}
-            <span className="font-semibold">
-              classements des meilleurs Cours
-            </span>
-            , mais vous aurez peut-être aussi la chance de faire partie de notre
-            palmarès des « <span className="font-semibold">serial moocers</span>{" "}
-            ».
+            By registering on My Mooc, you'll not only have access to a{" "}
+            <span className="font-semibold">personalized search engine</span>{" "}
+            and{" "}
+            <span className="font-semibold">rankings of the best courses</span>,
+            but you might also have the chance to be part of our "
+            <span className="font-semibold">serial moocers</span>" leaderboard.
           </p>
         </div>
 
@@ -236,7 +233,7 @@ const Meilleurs: React.FC = () => {
         >
           <div className="flex space-x-4 mb-4 border-b">
             <button className="text-blue-900 border-b-2 border-blue-700 pb-2 font-medium">
-              TOP Cours
+              TOP Courses
             </button>
           </div>
           <div>

@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
     const user = await findUserByEmail(email);
     if (!user) {
       return NextResponse.json(
@@ -19,7 +18,6 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-
     const isValid = await validatePassword(password, user.password);
     if (!isValid) {
       return NextResponse.json(
@@ -27,8 +25,6 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-
-    // Simule un token (en production, utilisez une vraie librairie comme jsonwebtoken)
     const token = `fake-jwt-token-${user.email}`;
 
     return NextResponse.json(

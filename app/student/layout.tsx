@@ -67,18 +67,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     className="flex items-center text-gray-600 hover:text-amber-600 transition-colors duration-200"
                   >
                     <Book className="h-4 w-4 mr-1" />
-                    <span>Catégories</span>
+                    <span>Categories</span>
                   </Link>
                   <Link
                     href="#top-courses"
-  onClick={(e) => {
-    e.preventDefault();
-    handleScrollToTopCourses();
-  }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleScrollToTopCourses();
+                    }}
                     className="text-gray-600 hover:text-amber-600 transition-colors duration-200 flex items-center"
                   >
                     <Star className="h-4 w-4 mr-1" />
-                    <span>Les tops</span>
+                    <span>Top courses </span>
                   </Link>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <input
                     type="search"
-                    placeholder="Rechercher un Cours"
+                    placeholder="Search a Course"
                     className="w-full pl-10 pr-4 py-2 border rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
@@ -110,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     className="text-gray-600 hover:text-amber-600 transition-colors duration-200 flex items-center"
                   >
                     <Briefcase className="h-4 w-4 mr-1" />
-                    <span>Entreprises</span>
+                    <span>Companies</span>
                   </Link>
 
                   {/* Bouton Sign in ou Compte */}
@@ -121,14 +121,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         className="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg px-6 py-2 transition-colors duration-200 shadow-sm hover:shadow flex items-center"
                       >
                         <User className="h-4 w-4 mr-2" />
-                        <span>Compte</span>
+                        <span>Account</span>
                         <ChevronDown className="h-4 w-4 ml-2" />
                       </button>
                       {isAccountOpen && (
                         <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10">
                           <div className="p-4 border-b">
                             <p className="text-sm font-medium text-gray-900">
-                              Bienvenue, {user.name}
+                              Welcome, {user.name}
                             </p>
                             <p className="text-xs text-gray-500">
                               {user.email}
@@ -137,12 +137,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                           <button
                             onClick={() => {
                               logout();
-                              setIsAccountOpen(false); // Ferme la carte après déconnexion
+                              setIsAccountOpen(false); // Close the card after logout
                             }}
                             className="w-full text-left px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 flex items-center"
                           >
                             <LogOut className="h-4 w-4 mr-2" />
-                            Déconnexion
+                            Logout
                           </button>
                         </div>
                       )}
@@ -183,7 +183,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <input
                       type="search"
-                      placeholder="Rechercher un cours"
+                      placeholder="Search a course"
                       className="w-full pl-10 pr-4 py-2 border rounded-lg bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                     />
                   </div>
@@ -194,19 +194,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   className="flex items-center px-4 py-3 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors duration-200"
                 >
                   <Book className="h-4 w-4 mr-2 text-amber-600" />
-                  <span>Catégories</span>
+                  <span>Categories</span>
                 </Link>
                 <Link
                   href="#top-courses"
                   onClick={(e) => {
                     e.preventDefault();
                     handleScrollToTopCourses();
-                    setIsMenuOpen(false); // Fermer le menu mobile après le clic
+                    setIsMenuOpen(false); // Close mobile menu after click
                   }}
                   className="flex items-center px-4 py-3 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors duration-200"
                 >
                   <Star className="h-4 w-4 mr-2 text-amber-600" />
-                  <span>Les tops</span>
+                  <span>Top courses</span>
                 </Link>
 
                 <Link
@@ -221,7 +221,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   className="flex items-center px-4 py-3 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors duration-200"
                 >
                   <Briefcase className="h-4 w-4 mr-2 text-amber-600" />
-                  <span>Entreprises</span>
+                  <span>Companies</span>
                 </Link>
 
                 {/* Menu mobile pour Sign in ou Compte */}
@@ -233,7 +233,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     >
                       <div className="flex items-center">
                         <User className="h-5 w-5 mr-3" />
-                        <span className="text-base">Compte</span>
+                        <span className="text-base">Account</span>
                       </div>
                       <ChevronDown
                         className={`h-5 w-5 transform transition-transform duration-300 ${
@@ -246,7 +246,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       <div className="absolute left-0 right-0 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-10 transform origin-top animate-slide-down">
                         <div className="p-4 border-b border-gray-100">
                           <p className="text-sm font-semibold text-gray-900 tracking-tight">
-                            Bienvenue, {user.name}
+                            Welcome, {user.name}
                           </p>
                           <p className="text-xs text-gray-500 mt-1">
                             {user.email}
@@ -260,9 +260,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                           className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200 rounded-b-xl"
                         >
                           <LogOut className="h-5 w-5 mr-3" />
-                          <span className="text-sm font-medium">
-                            Déconnexion
-                          </span>
+                          <span className="text-sm font-medium">Logout</span>
                         </button>
                       </div>
                     )}
@@ -291,32 +289,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {/* À propos */}
               <div>
-                <h3 className="text-lg font-semibold text-amber-600  mb-3">
-                  À propos
+                <h3 className="text-lg font-semibold text-amber-600 mb-3">
+                  About
                 </h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Notre mission
+                      Our mission
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Équipe
+                      Team
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Carrières
+                      Careers
                     </Link>
                   </li>
                 </ul>
@@ -324,14 +322,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Ressources */}
               <div>
-                <h3 className="text-lg font-semibold text-amber-600  mb-3">
-                  Ressources
+                <h3 className="text-lg font-semibold text-amber-600 mb-3">
+                  Resources
                 </h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
                       Blog
                     </Link>
@@ -339,7 +337,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
                       Guides
                     </Link>
@@ -347,9 +345,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Webinaires
+                      Webinars
                     </Link>
                   </li>
                 </ul>
@@ -364,15 +362,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Centre d'aide
+                      Help Center
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
                       Contact
                     </Link>
@@ -380,7 +378,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
                       FAQ
                     </Link>
@@ -391,31 +389,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Légal */}
               <div>
                 <h3 className="text-lg font-semibold text-amber-600 mb-3">
-                  Légal
+                  Legal
                 </h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Conditions d'utilisation
+                      Terms of Use
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Politique de confidentialité
+                      Privacy Policy
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="#"
-                      className=" hover:text-amber-600 transition-colors duration-200"
+                      className="hover:text-amber-600 transition-colors duration-200"
                     >
-                      Mentions légales
+                      Legal Notice
                     </Link>
                   </li>
                 </ul>
@@ -426,7 +424,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="mt-8 pt-8 pb-8  border-t bg-blue-900">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p className="text-sm text-amber-50">
-                  © {new Date().getFullYear()} BHA. Tous droits réservés.
+                  © {new Date().getFullYear()} BHA. All rights reserved.
                 </p>
                 <div className="flex space-x-6">
                   <a

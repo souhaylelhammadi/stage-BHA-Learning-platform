@@ -19,43 +19,39 @@ interface Course {
 const courses: Course[] = [
   {
     id: 1,
-    title: "Intelligence Artificielle: concepts et applications",
+    title: "Artificial Intelligence: Concepts and Applications",
     image: "/images/AI.jpeg",
-  
-   
     rating: 4.8,
-    startDate: "15 mars 2025",
-    duration: "6 semaines",
-    certification: "Certificat payant",
+    startDate: "March 15, 2025",
+    duration: "6 weeks",
+    certification: "Paid Certificate",
   },
   {
     id: 2,
-    title: "Développement Web Full Stack avec React et Node.js",
+    title: "Full Stack Web Development with React and Node.js",
     image: "/images/FL.jpeg",
     rating: 4.5,
-    startDate: "1 avril 2025",
-    duration: "8 semaines",
-    certification: "Attestation gratuite",
+    startDate: "April 1, 2025",
+    duration: "8 weeks",
+    certification: "Free Certificate",
   },
   {
     id: 3,
-    title: "Data Science: analyse et visualisation de données",
+    title: "Data Science: Data Analysis and Visualization",
     image: "/images/OIP.jpeg",
     rating: 4.7,
-    startDate: "Accès immédiat",
-    duration: "5 semaines",
-    certification: "Certificat payant",
+    startDate: "Immediate Access",
+    duration: "5 weeks",
+    certification: "Paid Certificate",
   },
   {
     id: 4,
-    title: "Gestion de projet agile avec Scrum",
+    title: "Agile Project Management with Scrum",
     image: "/images/Gestion.jpeg",
-   
-
     rating: 4.6,
-    startDate: "20 mars 2025",
-    duration: "4 semaines",
-    certification: "Certificat payant",
+    startDate: "March 20, 2025",
+    duration: "4 weeks",
+    certification: "Paid Certificate",
   },
 ];
 
@@ -76,12 +72,11 @@ const CoursesDuMoment: React.FC = () => {
     <div className="bg-gray-50 py-12" ref={containerRef}>
       <div className=" mx-auto px-4">
         <h2 className="text-3xl text-center text-blue-900 font-semibold mb-4">
-          LES COURS DU MOMENT
+          FEATURED COURSES
         </h2>
         <p className="text-center text-gray-600 mb-12">
-          Retrouvez tous les cours que nous vous conseillons de suivre
-          prochainement. Les cours en ligne du moment sont présents dans cette
-          sélection actualisée chaque jour.
+          Find all the courses we recommend you to take soon. Current online
+          courses are featured in this selection updated daily.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -109,11 +104,6 @@ const CoursesDuMoment: React.FC = () => {
                     />
                   </motion.div>
                 </div>
-
-                
-
-                
-               
               </div>
 
               <div className="p-4">

@@ -6,28 +6,27 @@ export default function PRQ() {
       <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl text-center text-blue-900 font-semibold mb-10">
-            PourQuoi Nous ?
+            Why Choose Us?
           </h2>
 
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-8 md:mb-0 md:pr-8">
-              Plateforme flexible et accessible
+              Flexible and accessible platform
               <p className="text-gray-600 mb-4">
-                Accédez à vos formations quand vous le souhaitez, de n'importe
-                où et sur n'importe quel appareil, pour apprendre à votre propre
-                rythme.
+                Access your courses whenever you want, from anywhere and on any
+                device, to learn at your own pace.
               </p>
-              Pratique continue
+              Continuous practice
               <p className="text-gray-600 mb-4">
-                Des exercices et des tests réguliers sont intégrés dans chaque
-                formation pour vous permettre d'appliquer immédiatement vos
-                connaissances et maîtriser les compétences acquises.
+                Regular exercises and tests are integrated into each course to
+                help you immediately apply your knowledge and master the
+                acquired skills.
               </p>
-              Qualité des formations et des formateurs
+              Quality of courses and instructors
               <p className="text-gray-600 mb-4">
-                Nos formations, créées par des experts, offrent un contenu de
-                qualité et actualisé, alliant théorie et pratique pour une
-                expérience d'apprentissage complète.
+                Our courses, created by experts, offer quality and up-to-date
+                content, combining theory and practice for a complete learning
+                experience.
               </p>
             </div>
             <div className="md:w-1/3 flex justify-center">
@@ -59,8 +58,8 @@ export default function PRQ() {
                 </svg>
               </div>
               <p className="text-center text-gray-600">
-                Plusieurs milliers de formations en ligne gratuites et
-                certifiantes disponibles à tout moment.
+                Thousands of free and certified online courses available at any
+                time.
               </p>
             </div>
             <div className="flex flex-col items-center">
@@ -81,8 +80,8 @@ export default function PRQ() {
                 </svg>
               </div>
               <p className="text-center text-gray-600">
-                Le leader francophone dans la recherche d'un Cours avec 50
-                000 avis consultables.
+                The leading platform for course search with 50,000 reviews
+                available.
               </p>
             </div>
             <div className="flex flex-col items-center">
@@ -103,8 +102,8 @@ export default function PRQ() {
                 </svg>
               </div>
               <p className="text-center text-gray-600">
-                Une plateforme disponible en 5 langues et accessible
-                gratuitement sur tous supports.
+                A platform available in 5 languages and freely accessible on all
+                devices.
               </p>
             </div>
           </div>

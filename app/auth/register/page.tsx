@@ -67,7 +67,7 @@ export default function Register() {
     courseTitle: "",
     courseDescription: "",
     experience: "",
-    availability: "",
+   
   });
   const [error, setError] = useState<string | null>(null);
 
@@ -80,7 +80,7 @@ export default function Register() {
     setError(null);
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Les mots de passe ne correspondent pas");
+      setError("Passwords do not match");
       return;
     }
 
@@ -95,22 +95,20 @@ export default function Register() {
           isPartner,
           diploma: formData.diploma,
           experience: formData.experience,
-          availability: formData.availability,
+         
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Registration failed");
+        throw new Error(data.error || "Registration error");
       }
 
       login({ email: data.user.email, name: data.user.name }, data.token);
       router.push("/student");
     } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "Erreur lors de l'inscription"
-      );
+      setError(error instanceof Error ? error.message : "Registration error");
     }
   };
 
@@ -119,7 +117,7 @@ export default function Register() {
       <div className="w-full max-w-md bg-white rounded-lg shadow-md border border-gray-200 p-4 sm:p-5 space-y-4">
         <div className="space-y-2">
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 text-center">
-            Créez votre compte
+            Create your account
           </h1>
           <div className="flex justify-center gap-2">
             <button
@@ -148,7 +146,7 @@ export default function Register() {
         <form onSubmit={handleSubmit} className="space-y-3">
           <FormInput
             id="name"
-            label="Votre nom"
+            label="Your name"
             type="text"
             value={formData.name}
             onChange={handleChange}
@@ -157,7 +155,7 @@ export default function Register() {
           />
           <FormInput
             id="email"
-            label="Adresse email"
+            label="Email address"
             type="email"
             value={formData.email}
             onChange={handleChange}
@@ -166,7 +164,7 @@ export default function Register() {
           />
           <FormInput
             id="password"
-            label="Mot de passe"
+            label="Password"
             type="password"
             value={formData.password}
             onChange={handleChange}
@@ -175,7 +173,7 @@ export default function Register() {
           />
           <FormInput
             id="confirmPassword"
-            label="Confirmez le mot de passe"
+            label="Confirm password"
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
@@ -185,55 +183,43 @@ export default function Register() {
           {isPartner && (
             <div className="bg-gray-100 border border-gray-300 rounded-md p-2 space-y-2 shadow-sm">
               <h2 className="text-sm font-semibold text-gray-800 text-center">
-                Informations Partenaire
+                Partner Information
               </h2>
               <FormInput
                 id="diploma"
-                label="Diplôme"
+                label="Diploma"
                 type="text"
                 value={formData.diploma}
                 onChange={handleChange}
-                placeholder="Ex: Master"
+                placeholder="Ex: Master's"
                 required
               />
               <div className="flex gap-2">
                 <div className="flex-1">
                   <FormInput
                     id="experience"
-                    label="Expérience"
+                    label="Experience"
                     type="text"
                     value={formData.experience}
                     onChange={handleChange}
-                    placeholder="Ex: 5 ans"
+                    placeholder="Ex: 5 years"
                     required
                   />
                 </div>
-                <div className="flex-1">
-                  <FormInput
-                    id="
-                    
-                    "
-                    label="Disponibilité"
-                    type="text"
-                    value={formData.availability}
-                    onChange={handleChange}
-                    placeholder="Ex: Lundi-Vendredi"
-                    required
-                  />
-                </div>
+                
               </div>
             </div>
           )}
           <FormButton type="submit" variant="primary">
-            {isPartner ? "Valider mon inscription" : "Créer un compte"}
+            {isPartner ? "Complete registration" : "Create account"}
           </FormButton>
           <p className="text-xs text-gray-500 text-center">
-            Vous avez déjà un compte ?{" "}
+            Already have an account?{" "}
             <Link
               href="/auth/login"
               className="text-blue-950 hover:underline font-medium"
             >
-              Se connecter
+              Sign in
             </Link>
           </p>
         </form>

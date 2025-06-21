@@ -7,19 +7,19 @@ const certifications = [
     id: 1,
     image: "/images/CR1.avif",
     type: "Certification",
-    title: "certification d'un cours",
+    title: "Course Certification",
   },
   {
     id: 2,
-    image: "/images/R4.jpeg", 
+    image: "/images/R4.jpeg",
     type: "Certification",
-    title: "certification d'un module",
+    title: "Module Certification",
   },
   {
     id: 3,
     image: "/images/R5.avif",
     type: "Certification",
-    title: "certification d'un projet",
+    title: "Project Certification",
   },
 ];
 

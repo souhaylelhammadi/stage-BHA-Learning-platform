@@ -51,8 +51,8 @@ export default function CourseDetailClient({
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const isModuleExpanded = (index: number) => expandedModules.includes(index); // Fonction utilitaire pour vérifier si un module est développé
-// Fonction utilitaire pourvrir ou fermer un module
+  const isModuleExpanded = (index: number) => expandedModules.includes(index); // Utility function to check if a module is expanded
+  // Utility function to open or close a module
   const toggleModule = (index: number) => {
     setExpandedModules((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
@@ -67,12 +67,12 @@ export default function CourseDetailClient({
       });
     }, 100);
   };
-/// Fonction utilitaire pour sélectionner un sous-module et faire defiler vers le contenu
+  /// Utility function to select a submodule and scroll to content
   const selectSubModule = (moduleIndex: number, subModuleIndex: number) => {
     setSelectedSubModule({ moduleIndex, subModuleIndex });
     scrollToContent();
   };
-/// Fonction utilitaire pour faire défiler vers le haut de la page
+  /// Utility function to scroll to the top of the page
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollToTop(window.scrollY > 300);
@@ -84,7 +84,7 @@ export default function CourseDetailClient({
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-/// Fonction utilitaire pour obtenir le sous-module précédent
+  /// Utility function to get the previous submodule
   const getPreviousSubModule = () => {
     const { moduleIndex, subModuleIndex } = selectedSubModule;
     if (subModuleIndex > 0) {
@@ -98,7 +98,7 @@ export default function CourseDetailClient({
     }
     return null;
   };
-/// Fonction utilitaire pour obtenir le sous-module suivant
+  /// Utility function to get the next submodule
   const getNextSubModule = () => {
     const { moduleIndex, subModuleIndex } = selectedSubModule;
     if (subModuleIndex < modules[moduleIndex].subModules.length - 1) {
@@ -125,7 +125,7 @@ export default function CourseDetailClient({
       scrollToContent();
     }
   };
-/// Fonction utilitaire pour rendre la section de contenu du module
+  /// Utility function to render the module content section
   const renderContentSection = (
     title: string,
     icon: React.ReactNode,
@@ -196,14 +196,14 @@ export default function CourseDetailClient({
                 {item.type === "pdf" && (
                   <FileText
                     className={`w-6 h-6 ${
-                      colorClasses[color as keyof typeof colorClasses].text // Utilisez la classe de couleur appropriée
+                      colorClasses[color as keyof typeof colorClasses].text // Use the appropriate color class
                     }`}
                   />
                 )}
                 {item.type === "exercise" && (
                   <BookOpen
                     className={`w-6 h-6 ${
-                      colorClasses[color as keyof typeof colorClasses].text 
+                      colorClasses[color as keyof typeof colorClasses].text
                     }`}
                   />
                 )}
@@ -216,7 +216,7 @@ export default function CourseDetailClient({
                 )}
                 <div>
                   <span className="font-medium">{item.title}</span>
-            
+
                   {item.duration && (
                     <p className="text-sm text-gray-500">{item.duration}</p>
                   )}
@@ -234,7 +234,7 @@ export default function CourseDetailClient({
                 {item.type === "pdf" && <FileText className="w-5 h-5" />}
                 {item.type === "exercise" && <BookOpen className="w-5 h-5" />}
                 {item.type === "exam" && <FileQuestion className="w-5 h-5" />}
-                {item.type === "video" ? "Regarder" : "Ouvrir"}
+                {item.type === "video" ? "Watch" : "Open"}
               </a>
             </div>
           ))}
@@ -242,13 +242,13 @@ export default function CourseDetailClient({
       </section>
     );
   };
-  // Vérifiez si le module est vide ou non
-  // Si le module est vide, affichez un message indiquant qu'il n'y a pas de module disponible
+  // Check if the module is empty or not
+  // If the module is empty, display a message indicating that no module is available
 
   if (!modules || modules.length === 0) {
-    return <div className="p-6 text-center">Aucun module disponible</div>;
+    return <div className="p-6 text-center">No module available</div>;
   }
-// Vérifiez si le module sélectionné est valide ou non
+  // Check if the selected module is valid or not
   const currentModule = modules[selectedSubModule.moduleIndex];
   const currentSubModule =
     currentModule?.subModules[selectedSubModule.subModuleIndex];
@@ -277,7 +277,7 @@ export default function CourseDetailClient({
                   }`}
                 />
               </button>
-             { /*Vérifiez si le module est développé ou non*/}
+              {/*Check if the module is expanded or not*/}
               {isModuleExpanded(moduleIndex) && (
                 <div className="ml-4 space-y-1 mt-1">
                   {module.subModules.map((subModule, subIndex) => (
@@ -308,7 +308,7 @@ export default function CourseDetailClient({
             <div className="flex items-center justify-between mb-6 border-b border-gray-200 pb-4">
               <div>
                 <div className="text-gray-500 text-sm mb-1">
-                  Module {selectedSubModule.moduleIndex + 1} &gt; Leçon{" "}
+                  Module {selectedSubModule.moduleIndex + 1} &gt; Lesson{" "}
                   {selectedSubModule.subModuleIndex + 1}
                 </div>
                 <h1 className="text-2xl font-bold text-gray-900">
@@ -336,28 +336,28 @@ export default function CourseDetailClient({
             {isEnrolled ? (
               <div className="space-y-8">
                 {renderContentSection(
-                  "Vidéos du Cours",
+                  "Course Videos",
                   <PlayCircle className="w-5 h-5 text-blue-500" />,
                   "video",
                   "blue"
                 )}
 
                 {renderContentSection(
-                  "Documents du Cours",
+                  "Course Documents",
                   <FileText className="w-5 h-5 text-purple-500" />,
                   "pdf",
                   "purple"
                 )}
 
                 {renderContentSection(
-                  "Exercices Pratiques",
+                  "Practice Exercises",
                   <BookOpen className="w-5 h-5 text-green-500" />,
                   "exercise",
                   "green"
                 )}
 
                 {renderContentSection(
-                  "Examens et Évaluations",
+                  "Exams and Evaluations",
                   <FileQuestion className="w-5 h-5 text-red-500" />,
                   "exam",
                   "red"
@@ -370,14 +370,14 @@ export default function CourseDetailClient({
                     className="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 disabled:opacity-50"
                   >
                     <ChevronLeft className="w-5 h-5" />
-                    Leçon Précédente
+                    Previous Lesson
                   </button>
                   <button
                     onClick={handleNext}
                     disabled={!getNextSubModule()}
                     className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50"
                   >
-                    Leçon Suivante
+                    Next Lesson
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -386,14 +386,14 @@ export default function CourseDetailClient({
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
                 <Server className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Accès Restreint
+                  Restricted Access
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Inscrivez-vous pour accéder aux vidéos, documents, exercices
-                  et examens du cours.
+                  Sign up to access course videos, documents, exercises and
+                  exams.
                 </p>
                 <button className="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                  S'inscrire au Cours
+                  Sign Up for the Course
                 </button>
               </div>
             )}
@@ -402,10 +402,10 @@ export default function CourseDetailClient({
           <div className="flex flex-col items-center justify-center h-full text-center p-6">
             <Server className="w-16 h-16 text-blue-300 mb-4" />
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Bienvenue sur la Plateforme
+              Welcome to the Platform
             </h2>
             <p className="text-gray-600 max-w-md">
-              Sélectionnez une leçon dans le menu à gauche pour commencer.
+              Select a lesson from the left menu to start.
             </p>
           </div>
         )}
